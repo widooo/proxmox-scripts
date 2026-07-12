@@ -213,7 +213,7 @@ step_start "Yarn"
 step_start "Nginx Proxy Manager" "Downloading" "Downloaded"
   NPM_VERSION="2.15.1"
   os_fetch -O- https://codeload.github.com/NginxProxyManager/nginx-proxy-manager/tar.gz/v$NPM_VERSION
-  tar -xvf v2.15.1
+  tar -xz v$NPM_VERSION
   cd ./nginx-proxy-manager-$NPM_VERSION
   step_end "Nginx Proxy Manager ${CLR_CYB}v$NPM_VERSION${CLR} ${CLR_GN}Downloaded"
 
