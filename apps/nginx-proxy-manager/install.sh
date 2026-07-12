@@ -210,12 +210,8 @@ step_start "Yarn"
   rm -rf "$GNUPGHOME" yarn-v$YARN_VERSION.tar.gz.asc yarn-v$YARN_VERSION.tar.gz
   step_end "Yarn ${CLR_CYB}v$YARN_VERSION${CLR} ${CLR_GN}Installed"
 
-step_start "Nginx Proxy Manager" "Downloading" "Downloaded"
-  NPM_VERSION="2.15.1"
-  cd ./nginx-proxy-manager-$NPM_VERSION
-  step_end "Nginx Proxy Manager ${CLR_CYB}v$NPM_VERSION${CLR} ${CLR_GN}Downloaded"
-
 step_start "Enviroment" "Setting up" "Setup"
+  cd ./nginx-proxy-manager-$NPM_VERSION
   # Update NPM version in package.json files
   sed -i "s/\"version\": \"0.0.0\"/\"version\": \"$NPM_VERSION\"/" backend/package.json
   sed -i "s/\"version\": \"0.0.0\"/\"version\": \"$NPM_VERSION\"/" frontend/package.json
