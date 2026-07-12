@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-export EPS_BASE_URL=${EPS_BASE_URL:-https://raw.githubusercontent.com/b-r-y/proxmox-scripts/main}
+export EPS_BASE_URL=${EPS_BASE_URL:-https://raw.githubusercontent.com/widooo/proxmox-scripts/main}
 export EPS_CT_INSTALL=true
 
 export EPS_UTILS_COMMON=$(wget --no-cache -qO- $EPS_BASE_URL/utils/common.sh)
