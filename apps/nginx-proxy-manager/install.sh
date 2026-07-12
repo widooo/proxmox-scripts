@@ -210,9 +210,13 @@ step_start "Yarn"
   rm -rf "$GNUPGHOME" yarn-v$YARN_VERSION.tar.gz.asc yarn-v$YARN_VERSION.tar.gz
   step_end "Yarn ${CLR_CYB}v$YARN_VERSION${CLR} ${CLR_GN}Installed"
 
+step_start "Nginx Proxy Manager" "Downloading" "Downloaded"
+  NPM_VERSION=$(os_fetch -O- https://api.github.com/repos/NginxProxyManager/nginx-proxy-manager/releases/latest | grep "tag_name" | awk '{print substr($2, 3, length($2)-4) }')
+  os_fetch -O- https://codeload.github.com/NginxProxyManager/nginx-proxy-manager/tar.gz/v$NPM_VERSION | tar -xz
+  cd ./nginx-proxy-manager-$NPM_VERSION
+  step_end "Nginx Proxy Manager ${CLR_CYB}v$NPM_VERSION${CLR} ${CLR_GN}Downloaded"
+
 step_start "Enviroment" "Setting up" "Setup"
-  print(pwd)
-  cd ./nginx-proxy-manager-2.15.1
   # Update NPM version in package.json files
   sed -i "s/\"version\": \"0.0.0\"/\"version\": \"$NPM_VERSION\"/" backend/package.json
   sed -i "s/\"version\": \"0.0.0\"/\"version\": \"$NPM_VERSION\"/" frontend/package.json
