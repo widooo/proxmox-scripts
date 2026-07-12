@@ -211,7 +211,7 @@ step_start "Yarn"
   step_end "Yarn ${CLR_CYB}v$YARN_VERSION${CLR} ${CLR_GN}Installed"
 
 step_start "Enviroment" "Setting up" "Setup"
-  cd ./nginx-proxy-manager-$NPM_VERSION
+  cd ./nginx-proxy-manager-2.15.1
   # Update NPM version in package.json files
   sed -i "s/\"version\": \"0.0.0\"/\"version\": \"$NPM_VERSION\"/" backend/package.json
   sed -i "s/\"version\": \"0.0.0\"/\"version\": \"$NPM_VERSION\"/" frontend/package.json
